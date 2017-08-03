@@ -1,0 +1,6 @@
+<h1>Adicione novo ingrediente</h1>
+<%= simple_form_for(@cocktail) do |f| %>
+  <%= f.error_notification %>
+  <%= f.input :name %>
+  <%= f.submit "Criar", class: "btn btn-default" %>
+<% end %>
