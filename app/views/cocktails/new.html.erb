@@ -1,6 +1,10 @@
-<h1>Adicione novo ingrediente</h1>
-<%= simple_form_for(@cocktail) do |f| %>
+<h1>Adicione novo Cocktail</h1>
+<%= simple_form_for @cocktail do |f| %>
   <%= f.error_notification %>
-  <%= f.input :name %>
+  <%= f.input :name, placeholder: "Cocktail Name", label: false %>
+  <%= f.simple_fields_for :doses do |d| %>
+    <%= d.input :description, placeholder: "Quantity", label: false  %>
+    <%= d.association :ingredient, placeholder: "Ingredient", label: false %>
+  <% end %>
   <%= f.submit "Criar", class: "btn btn-default" %>
 <% end %>

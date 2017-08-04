@@ -60,3 +60,5 @@ gem 'rspec-rails', group: [ :test ]
 gem 'rspec-rails', group: [ :test ]
 
 gem 'rails-controller-testing'
+
+gem 'figaro'
