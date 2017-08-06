@@ -62,3 +62,7 @@ gem 'rspec-rails', group: [ :test ]
 gem 'rails-controller-testing'
 
 gem 'figaro'
+
+gem 'cloudinary'
+
+gem 'carrierwave', '~> 0.11.2'

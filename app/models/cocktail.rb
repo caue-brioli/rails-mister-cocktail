@@ -5,4 +5,6 @@ class Cocktail < ApplicationRecord
 
   accepts_nested_attributes_for :doses
 
+  mount_uploader :photo, PhotoUploader
+
 end

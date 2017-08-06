@@ -15,7 +15,7 @@ class CocktailsController < ApplicationController
 
   def create
     @cocktail = Cocktail.new(cocktail_params)
-    # byebug
+    # @cocktail.photo = 'http://amoraseamores.com/wp-content/uploads/2017/01/best-summer-cocktails-with-alcohol-drinks-on-bar-1080x608.jpg' if @cocktail.photo.nil?
     if @cocktail.save
       redirect_to cocktail_path(@cocktail)
     else
@@ -26,6 +26,6 @@ class CocktailsController < ApplicationController
   private
 
   def cocktail_params
-    params.require(:cocktail).permit(:name, :doses_attributes => [:description, :ingredient_id, :cocktail_id])
+    params.require(:cocktail).permit(:name, :photo, :photo_cache, :doses_attributes => [:description, :ingredient_id, :cocktail_id])
   end
 end

@@ -6,5 +6,7 @@
     <%= d.input :description, placeholder: "Quantity", label: false  %>
     <%= d.association :ingredient, placeholder: "Ingredient", label: false %>
   <% end %>
+  <%= f.input :photo %>
+  <%= f.input :photo_cache, as: :hidden %>
   <%= f.submit "Criar", class: "btn btn-default" %>
 <% end %>

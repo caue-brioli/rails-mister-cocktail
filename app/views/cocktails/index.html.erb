@@ -1,4 +1,18 @@
-<h1>Todos os cocktails:</h1>
-<% @cocktails.each do |cocktail| %>
-  <p><%= link_to cocktail.name, cocktail_path(cocktail) %></p>
-<% end %>
+<div class="text-center">
+  <h3>Bem vindo a todos os cocktails:</h3>
+</div>
+<div class="container">
+  <div class="row">
+    <% @cocktails.each do |cocktail| %>
+      <div class="col-xs-12 col-sm-4">
+        <!-- insert <div class="card"> -->
+        <% if cocktail.photo.blank? %>
+          <%= render "card_no_photo", cocktail: cocktail %>
+        <% else %>
+          <%= render "card_with_photo", cocktail: cocktail %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>
+

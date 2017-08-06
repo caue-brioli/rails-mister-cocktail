@@ -1,6 +1,48 @@
-<h1><%= @cocktail.name %> Cocktail</h1>
-<%= link_to "Adicionar ingredientes", new_cocktail_dose_path(@cocktail), class: "btn btn-default" %>
+<div class="wrap text-center">
+  <h3><%= @cocktail.name %> Cocktail</h3>
+  <%= link_to "Adicionar ingredientes", new_cocktail_dose_path(@cocktail), class: "btn btn-default btn-sm" %>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-md-6 col-md-offset-3">
+        <% if @cocktail.photo.blank? %>
+          <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('http://amoraseamores.com/wp-content/uploads/2017/01/best-summer-cocktails-with-alcohol-drinks-on-bar-1080x608.jpg');">
+          </div>
+        <% else %>
+          <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path @cocktail.photo, height: 400, width: 600, crop: :fill %>');">
+          </div>
+        <% end %>
+      </div>
+    </div>
 
-<% @cocktail.doses.each do |dose| %>
-  <p><%= "#{dose.ingredient.name} - #{dose.description}" %> <%= link_to "Delete", cocktail_dose_path(@cocktail, dose), data: { method: :delete, confirm: "Are you sure?" } %></p>
-<% end %>
+
+    <div class="row">
+      <table>
+        <thead>
+          <tr>
+            <td>Ingredient</td>
+            <td>Qty</td>
+          </tr>
+        </thead>
+        <tbody>
+          <% @cocktail.doses.each do |dose| %>
+          <tr>
+            <td>
+              <p><%= dose.ingredient.name %></p>
+            </td>
+            <td>
+              <p><%= dose.description %></p>
+            </td>
+            <td>
+              <p><%= link_to "Delete", cocktail_dose_path(@cocktail, dose), data: { method: :delete, confirm: "Are you sure?" } %></p>
+            </td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+
+</div>
+
+
